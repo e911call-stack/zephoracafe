@@ -1,0 +1,5 @@
+{
+  "name": "Zepho",
+  "description": "A modern restaurant ordering system featuring a dynamic menu, real-time cart management, and an AI-powered waiter assistant using Gemini to recommend dishes based on user preferences.",
+  "requestFramePermissions": []
+}
