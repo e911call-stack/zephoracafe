@@ -1,17 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Zephora Cafe - Global Styles */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-}
 
 body {
   font-family: 'Playfair Display', serif;
@@ -46,8 +37,11 @@ body[dir="rtl"] {
   background: #333333;
 }
 
-/* Remove duplicate scrollbar styles from index.html inline <style> */
-img {
-  display: block;
-  max-width: 100%;
+/* Hide scrollbar for category tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
