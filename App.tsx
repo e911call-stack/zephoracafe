@@ -57,7 +57,7 @@ const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   
   // Auth States
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<{ id: string; email?: string } | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   
@@ -344,6 +344,7 @@ const App: React.FC = () => {
               src="https://ik.imagekit.io/g7p1qn7or/favicon.png" 
               alt="Zephora Logo" 
               className="w-40 h-40 object-contain mb-6 drop-shadow-2xl"
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
             />
             
             <p className="text-xl text-gray-100 leading-relaxed font-light mb-12 drop-shadow-md">
@@ -467,6 +468,7 @@ const App: React.FC = () => {
              src="https://ik.imagekit.io/g7p1qn7or/favicon.png" 
              alt="Logo" 
              className="relative z-10 w-40 h-40 object-contain drop-shadow-2xl"
+             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
         </div>
         
