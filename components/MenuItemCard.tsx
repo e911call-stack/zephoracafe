@@ -32,6 +32,13 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, onAddToCart, l
           alt={name}
           loading="lazy"
           className="w-full h-full object-cover object-center absolute inset-0"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (!target.dataset.errored) {
+              target.dataset.errored = 'true';
+              target.src = 'https://placehold.co/600x400/f5f5f5/999999?text=No+Image';
+            }
+          }}
         />
         
         {/* Out of Stock Overlay */}
