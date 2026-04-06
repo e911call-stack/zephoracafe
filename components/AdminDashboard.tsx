@@ -1104,6 +1104,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onExit }) => {
         imageUrl = data.publicUrl;
       }
 
+      // Fix #4: Validate that an image URL exists before saving
+      if (!imageUrl || imageUrl.trim() === '') {
+        throw new Error('An image is required. Please upload a file or paste an image URL.');
+      }
+
       const productData = {
         name: formData.get('name') as string,
         name_ar: formData.get('name_ar') as string,
@@ -1172,9 +1177,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onExit }) => {
 
       const productToDelete = previousProducts.find(p => p.id === id);
       if (productToDelete?.image && productToDelete.image.includes('menu-assets')) {
-          const urlParts = productToDelete.image.split('/');
-          const fileName = urlParts[urlParts.length - 1];
-          if (fileName) supabase.storage.from('menu-assets').remove([fileName]);
+        try {
+          const url = new URL(productToDelete.image);
+          const pathSegments = url.pathname.split('/menu-assets/');
+          const filePath = pathSegments[1]?.split('?')[0]; // strip any query params
+          if (filePath) supabase.storage.from('menu-assets').remove([filePath]);
+        } catch {
+          // If URL parsing fails, skip deletion — don't crash
+        }
       }
 
     } catch (err: any) {
@@ -1558,6 +1568,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onExit }) => {
                                               className="w-8 h-8 rounded object-cover border border-gray-200" 
                                               alt={p.name}
                                               loading="lazy"
+                                              onError={(e) => {
+                                                const target = e.currentTarget;
+                                                if (!target.dataset.errored) {
+                                                  target.dataset.errored = 'true';
+                                                  target.src = 'https://placehold.co/64x64/f5f5f5/999999?text=N/A';
+                                                }
+                                              }}
                                             />
                                         </td>
                                         <td className="p-3 font-medium">
