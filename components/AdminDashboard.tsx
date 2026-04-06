@@ -157,7 +157,7 @@ const translations = {
     totalProducts: "Total Products",
     activeCoupons: "Active Coupons",
     categories: "Categories",
-    lowStock: "Low Stock",
+    lowStockCount: "Low Stock",
     sold: "sold",
     noSales: "No sales data for this period",
     noCategoryData: "No category data available",
@@ -294,7 +294,7 @@ const translations = {
     totalProducts: "إجمالي المنتجات",
     activeCoupons: "كوبونات نشطة",
     categories: "فئات",
-    lowStock: "مخزون منخفض",
+    lowStockCount: "مخزون منخفض",
     sold: "مباع",
     noSales: "لا توجد مبيعات لهذه الفترة",
     noCategoryData: "لا توجد بيانات للفئات",
@@ -1825,7 +1825,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onExit }) => {
                       <div className="text-2xl font-bold text-purple-800">{uniqueCategories.length}</div>
                     </div>
                     <div className="bg-orange-50 p-4 rounded border border-orange-200">
-                      <div className="text-orange-700 text-xs font-bold uppercase">{t.lowStock}</div>
+                      <div className="text-orange-700 text-xs font-bold uppercase">{t.lowStockCount}</div>
                       <div className="text-2xl font-bold text-orange-800">
                         {products.filter(p => p.stock_quantity && p.stock_quantity < 5).length}
                       </div>
