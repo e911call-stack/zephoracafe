@@ -1,17 +1,17 @@
-
 export interface MenuItem {
   id: string;
-  sku?: string; // New: Stock Keeping Unit
+  sku?: string;
   name: string;
   name_ar?: string;
   description: string;
   description_ar?: string;
   price: number;
   category: string;
+  category_ar?: string; // Bilingual category label used in admin & filtering
   image: string;
   dietary?: string[];
-  stock_quantity?: number; // New: Inventory tracking
-  is_available?: boolean; // New: Master toggle
+  stock_quantity?: number;
+  is_available?: boolean;
 }
 
 export interface CartItem extends MenuItem {
