@@ -1,53 +1,46 @@
-/* Zephora Cafe - Global Styles */
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+    <title>Zephora Cafe - زيفورا كافيه</title>
+    <meta name="description" content="Welcome to Zephora Cafe! Enjoy our premium coffee, delicious burgers, pasta, and desserts. Order online for Delivery or Takeaway." />
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-}
+    <!-- Open Graph / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zephoracafe.com/" />
+    <meta property="og:title" content="Zephora Cafe | زيفورا كافيه" />
+    <meta property="og:description" content="Welcome to Zephora Cafe! Enjoy our premium coffee, delicious burgers, pasta, and desserts. Order online for Delivery or Takeaway." />
+    <meta property="og:image" content="https://ik.imagekit.io/g7p1qn7or/favicon.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:site_name" content="Zephora Cafe" />
 
-body {
-  font-family: 'Playfair Display', serif;
-  background-color: #ffffff;
-  color: #000000;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Zephora Cafe | زيفورا كافيه" />
+    <meta name="twitter:description" content="Welcome to Zephora Cafe! Enjoy our premium coffee, delicious burgers, pasta, and desserts. Order online for Delivery or Takeaway." />
+    <meta name="twitter:image" content="https://ik.imagekit.io/g7p1qn7or/favicon.png" />
 
-body[dir="rtl"] {
-  font-family: 'Cairo', sans-serif;
-}
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Zephora" />
+    <link rel="apple-touch-icon" href="https://ik.imagekit.io/g7p1qn7or/favicon.png" />
 
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #ffffff;
-}
-::-webkit-scrollbar-thumb {
-  background: #000000;
-  border-radius: 0px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #333333;
-}
-
-/* Remove duplicate scrollbar styles from index.html inline <style> */
-img {
-  display: block;
-  max-width: 100%;
-}
+    <!-- App Styles (Tailwind + custom, built by Vite) -->
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body class="bg-white text-black antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
